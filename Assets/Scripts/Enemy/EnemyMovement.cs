@@ -9,12 +9,14 @@ namespace Enemy
         
         private Transform _playerTransform;
         private SpriteRenderer _spriteRenderer;
+        private EnemyAnimation _enemyAnimator;
         private bool _isFacingRight;
 
         private void Awake()
         {
             _playerTransform = FindWithTag("Player").transform;
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _enemyAnimator = GetComponent<EnemyAnimation>();
         }
 
         private void Start()
@@ -35,10 +37,12 @@ namespace Enemy
                 {
                     Flip();
                 }
+                
+                _enemyAnimator.Move();
             }
             else
             {
-                // Attack animation
+                _enemyAnimator.Attack();
             }
         }
 

@@ -6,13 +6,13 @@ namespace Player
     {
         [SerializeField] private Animator animator;
         
-        private static readonly int Speed = Animator.StringToHash("Speed");
+        private static readonly int SpeedParameter = Animator.StringToHash("Speed");
 
         public void Move(Vector3 moveDirection)
         {
             var speedValue = Mathf.Abs(moveDirection.x) + Mathf.Abs(moveDirection.y);
 
-            animator.SetFloat(Speed, speedValue);
+            animator.SetFloat(SpeedParameter, speedValue);
         }
     }
 }

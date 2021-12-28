@@ -11,9 +11,9 @@ namespace Weapons
             GetComponent<Rigidbody2D>().velocity = transform.right * speed;
         }
 
-        private void OnTriggerEnter2D(Collider2D col)
+        private void OnTriggerEnter2D(Collider2D hitInfo)
         {
-            Debug.Log(col.name);
+            
             Destroy(gameObject);
         }
     }
