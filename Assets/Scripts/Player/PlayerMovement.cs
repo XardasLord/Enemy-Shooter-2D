@@ -27,13 +27,15 @@ namespace Player
 
             transform.Translate(movement);
 
-            AdjustMoveAnimation(inputX);
+            AdjustMoveAnimation(movement);
             Flip(inputX);
         }
 
-        private void AdjustMoveAnimation(float horizontalMove)
+        private void AdjustMoveAnimation(Vector3 moveDirection)
         {
-            _animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+            var speedValue = Mathf.Abs(moveDirection.x) + Mathf.Abs(moveDirection.y);
+
+            _animator.SetFloat("Speed", speedValue);
         }
 
         private void Flip(float horizontalMove)
