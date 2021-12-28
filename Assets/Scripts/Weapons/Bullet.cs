@@ -1,3 +1,4 @@
+using Enemy;
 using UnityEngine;
 
 namespace Weapons
@@ -5,6 +6,8 @@ namespace Weapons
     public class Bullet : MonoBehaviour
     {
         [SerializeField] private float speed = 20f;
+
+        private int _damage;
  
         private void Start()
         {
@@ -13,8 +16,19 @@ namespace Weapons
 
         private void OnTriggerEnter2D(Collider2D hitInfo)
         {
-            
+            var enemyHealth = hitInfo.GetComponent<EnemyHealth>();
+
+            if (enemyHealth is null)
+                return;
+            else
+                enemyHealth.TakeDamage(_damage);
+
             Destroy(gameObject);
+        }
+
+        public void SetDamage(int damage)
+        {
+            _damage = damage;
         }
     }
 }

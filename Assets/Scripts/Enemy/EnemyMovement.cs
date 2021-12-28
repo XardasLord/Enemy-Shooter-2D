@@ -10,6 +10,7 @@ namespace Enemy
         private Transform _playerTransform;
         private SpriteRenderer _spriteRenderer;
         private EnemyAnimation _enemyAnimator;
+        private EnemyHealth _enemyHealth;
         private bool _isFacingRight;
 
         private void Awake()
@@ -17,6 +18,7 @@ namespace Enemy
             _playerTransform = FindWithTag("Player").transform;
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _enemyAnimator = GetComponent<EnemyAnimation>();
+            _enemyHealth = GetComponent<EnemyHealth>();
         }
 
         private void Start()
@@ -26,6 +28,9 @@ namespace Enemy
 
         private void Update()
         {
+            if (!_enemyHealth.IsAlive())
+                return;
+                
             if (Vector3.Distance(transform.position, _playerTransform.position) > 0.5f) {
                 
                 transform.position = Vector2.MoveTowards(
