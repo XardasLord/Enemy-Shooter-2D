@@ -6,15 +6,15 @@ namespace Player
     {
         [SerializeField] private float speed = 5;
     
-        private Animator _animator;
         private SpriteRenderer _spriteRenderer;
         private bool _isFacedRight = true;
+        private PlayerAnimation _playerAnimator;
 
         public bool IsFacingRight => _isFacedRight;
 
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
+            _playerAnimator = GetComponent<PlayerAnimation>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
@@ -29,15 +29,8 @@ namespace Player
 
             transform.Translate(movement);
 
-            AdjustMoveAnimation(movement);
+            _playerAnimator.Move(movement);
             Flip(inputX);
-        }
-
-        private void AdjustMoveAnimation(Vector3 moveDirection)
-        {
-            var speedValue = Mathf.Abs(moveDirection.x) + Mathf.Abs(moveDirection.y);
-
-            _animator.SetFloat("Speed", speedValue);
         }
 
         private void Flip(float horizontalMove)

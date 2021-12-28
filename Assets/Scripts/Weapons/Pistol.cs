@@ -14,13 +14,13 @@ namespace Weapons
         
         public override void Fire()
         {
-            if (Time.time > _nextFire)
-            {
-                var angle = playerMovement.IsFacingRight ? 0f : 180f;
-                var bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
+            if (!(Time.time > _nextFire)) 
+                return;
+            
+            var angle = playerMovement.IsFacingRight ? 0f : 180f;
+            var bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
                 
-                _nextFire = Time.time + fireRate;
-            }
+            _nextFire = Time.time + fireRate;
         }
     }
 }
