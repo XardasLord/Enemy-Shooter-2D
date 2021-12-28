@@ -10,6 +10,8 @@ namespace Player
         private SpriteRenderer _spriteRenderer;
         private bool _isFacedRight = true;
 
+        public bool IsFacingRight => _isFacedRight;
+
         private void Awake()
         {
             _animator = GetComponent<Animator>();
