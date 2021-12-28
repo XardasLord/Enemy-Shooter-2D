@@ -8,10 +8,15 @@ namespace Enemy
         
         private static readonly int AttackProperty = Animator.StringToHash("IsAttacking");
         private static readonly int DieProperty = Animator.StringToHash("IsDead");
+        private static readonly int GetHitProperty = Animator.StringToHash("GetHit");
 
         private void Awake()
         {
             _enemyAnimator = GetComponent<Animator>();
+
+            var enemyHealth = GetComponent<EnemyHealth>();
+            enemyHealth.OnDie += Die;
+            enemyHealth.OnGetHit += GetHit;
         }
 
         public void Attack()
@@ -24,9 +29,19 @@ namespace Enemy
             _enemyAnimator.SetBool(AttackProperty, false);
         }
 
-        public void Die()
+        public void Idle()
+        {
+            _enemyAnimator.SetBool(AttackProperty, false);
+        }
+
+        private void Die()
         {
             _enemyAnimator.SetBool(DieProperty, true);
+        }
+
+        private void GetHit()
+        {
+            _enemyAnimator.SetTrigger(GetHitProperty);
         }
     }
 }

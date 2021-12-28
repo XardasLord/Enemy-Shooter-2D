@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 using static UnityEngine.GameObject;
 
@@ -10,15 +11,21 @@ namespace Enemy
         private Transform _playerTransform;
         private SpriteRenderer _spriteRenderer;
         private EnemyAnimation _enemyAnimator;
-        private EnemyHealth _enemyHealth;
         private bool _isFacingRight;
+        private bool _isDead;
+        private bool _shouldStay;
 
         private void Awake()
         {
             _playerTransform = FindWithTag("Player").transform;
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _enemyAnimator = GetComponent<EnemyAnimation>();
-            _enemyHealth = GetComponent<EnemyHealth>();
+            
+            var enemyHealth = GetComponent<EnemyHealth>();
+            enemyHealth.OnDie += EnemyOnDie;
+
+            var playerHealth = FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+            playerHealth.OnDie += PlayerOnDie;
         }
 
         private void Start()
@@ -28,7 +35,7 @@ namespace Enemy
 
         private void Update()
         {
-            if (!_enemyHealth.IsAlive())
+            if (_isDead || _shouldStay)
                 return;
                 
             if (Vector3.Distance(transform.position, _playerTransform.position) > 0.5f) {
@@ -64,6 +71,14 @@ namespace Enemy
         {
             _spriteRenderer.flipX = !_spriteRenderer.flipX;
             _isFacingRight = !_isFacingRight;
+        }
+
+        private void EnemyOnDie() => _isDead = true;
+
+        private void PlayerOnDie()
+        {
+            _enemyAnimator.Idle();
+            _shouldStay = true;
         }
     }
 }

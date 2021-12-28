@@ -1,12 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using Common;
+using UnityEngine;
 
 namespace Player
 {
-    public class PlayerHealth : MonoBehaviour
+    public class PlayerHealthBase : HealthBase
     {
         [SerializeField] [Range(1, 100)] private int health = 100;
+        
+        public override event Action OnDie = delegate { };
+        public override event Action<int> OnGetHit = delegate { };
 
-        public void TakeDamage(int damage)
+        public override void TakeDamage(int damage)
         {
             health -= damage;
             
@@ -14,9 +19,14 @@ namespace Player
             {
                 health = 0;
                 
-                // TODO: Die animation
-                Destroy(gameObject, 2f);
+                OnDie();
+            }
+            else
+            {
+                OnGetHit(damage);
             }
         }
+
+        public override int GetHealth() => health;
     }
 }
