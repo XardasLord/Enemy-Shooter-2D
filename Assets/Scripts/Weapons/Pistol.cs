@@ -8,7 +8,7 @@ namespace Weapons
         [SerializeField] [Range(1, 100)] private int damage = 5;
         [SerializeField] private Bullet bulletPrefab;
         [SerializeField] private float fireRate = 0.5f;
-        [SerializeField] private PlayerMovement playerMovement; // TODO: Would be nice to get rif of this
+        [SerializeField] private PlayerMovement playerMovement; // TODO: Would be nice to get rid of this
         [SerializeField] private Transform firePoint;
         
         private float _nextFire;

@@ -20,8 +20,8 @@ namespace Weapons
 
             if (enemyHealth is null)
                 return;
-            else
-                enemyHealth.TakeDamage(_damage);
+            
+            enemyHealth.TakeDamage(_damage);
 
             Destroy(gameObject);
         }

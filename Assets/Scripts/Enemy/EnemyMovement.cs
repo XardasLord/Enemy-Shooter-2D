@@ -1,6 +1,5 @@
 using Player;
 using UnityEngine;
-using static UnityEngine.GameObject;
 
 namespace Enemy
 {
@@ -17,14 +16,14 @@ namespace Enemy
 
         private void Awake()
         {
-            _playerTransform = FindWithTag("Player").transform;
+            _playerTransform = GameObject.FindWithTag("Player").transform;
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _enemyAnimator = GetComponent<EnemyAnimation>();
             
             var enemyHealth = GetComponent<EnemyHealth>();
             enemyHealth.OnDie += EnemyOnDie;
 
-            var playerHealth = FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+            var playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
             playerHealth.OnDie += PlayerOnDie;
         }
 

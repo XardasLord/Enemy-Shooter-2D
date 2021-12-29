@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyHealthBase : HealthBase
+    public class EnemyHealth : HealthBase
     {
         [SerializeField] [Range(1, 100)] private int health = 20;
 

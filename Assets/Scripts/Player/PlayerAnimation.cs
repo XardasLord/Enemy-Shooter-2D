@@ -24,7 +24,7 @@ namespace Player
             animator.SetFloat(SpeedParameter, speedValue);
         }
 
-        private void OnGetHit()
+        private void OnGetHit(int hitDamage)
         {
             animator.SetTrigger(GetHitProperty);
         }

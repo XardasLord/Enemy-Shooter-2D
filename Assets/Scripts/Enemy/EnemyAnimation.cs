@@ -39,7 +39,7 @@ namespace Enemy
             _enemyAnimator.SetBool(DieProperty, true);
         }
 
-        private void GetHit()
+        private void GetHit(int hitDamage)
         {
             _enemyAnimator.SetTrigger(GetHitProperty);
         }
