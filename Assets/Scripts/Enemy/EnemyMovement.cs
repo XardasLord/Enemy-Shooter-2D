@@ -37,7 +37,7 @@ namespace Enemy
             if (_isDead || _shouldStay)
                 return;
                 
-            if (Vector3.Distance(transform.position, _playerTransform.position) > 0.5f) {
+            if (Vector3.Distance(transform.position, _playerTransform.position) > 1f) {
                 
                 transform.position = Vector2.MoveTowards(
                     transform.position,
