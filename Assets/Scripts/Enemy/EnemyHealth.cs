@@ -21,6 +21,7 @@ namespace Enemy
 
                 OnDie();
                 Destroy(gameObject, 2f);
+                GetComponent<BoxCollider2D>().enabled = false;
             }
             else
             {
