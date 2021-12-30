@@ -6,11 +6,17 @@ namespace Enemy
     public class EnemyAttacker : MonoBehaviour
     {
         [SerializeField] [Range(1, 50)] private int damage = 10;
-        [SerializeField] private PlayerHealth playerHealth;
-    
+        
+        private PlayerHealth _playerHealth;
+
+        private void Awake()
+        {
+            _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        }
+
         public void DealDamage()
         {
-            playerHealth.TakeDamage(damage);
+            _playerHealth.TakeDamage(damage);
         }
     }
 }
