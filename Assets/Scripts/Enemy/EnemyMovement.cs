@@ -29,7 +29,14 @@ namespace Enemy
 
         private void Start()
         {
-            _isFacingRight = _playerTransform.position.x > transform.position.x;
+            // Sprite is facing right by default
+            _isFacingRight = true;
+            
+            if (_playerTransform.position.x < transform.position.x)
+            {
+                // Facing left, so we should Flip, because enemy sprite is facing right by default
+                Flip();
+            }
         }
 
         private void Update()

@@ -10,11 +10,12 @@ namespace Enemy
         [SerializeField] private int minTimeSpawnFrequencyInSecs = 5;
         [SerializeField] private int maxTimeSpawnFrequencyInSecs = 15;
 
-        private bool _isSpawning = false;
+        private bool _isSpawning;
 
         private IEnumerator SpawnEnemy(int index, float seconds)
         {
             yield return new WaitForSeconds(seconds);
+            
             Instantiate(enemyPrefabs[index], transform.position, transform.rotation);
 
             _isSpawning = false;
