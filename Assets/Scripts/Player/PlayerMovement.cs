@@ -1,3 +1,4 @@
+using Player.Commands;
 using UnityEngine;
 
 namespace Player
@@ -27,7 +28,8 @@ namespace Player
 
             movement *= speed * Time.deltaTime;
 
-            transform.Translate(movement);
+            var moveCommand = new MoveCommand(gameObject, movement);
+            moveCommand.Execute();
 
             _playerAnimator.Move(movement);
             Flip(inputX);

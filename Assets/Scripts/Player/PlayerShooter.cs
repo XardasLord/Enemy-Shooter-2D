@@ -1,3 +1,4 @@
+using Player.Commands;
 using UnityEngine;
 using Weapons;
 
@@ -10,9 +11,12 @@ namespace Player
         private void Update()
         {
             var fire = Input.GetButton("Fire1");
-            
+
             if (fire)
-                activeWeapon.Fire();
+            {
+                var shootCommand = new ShootCommand(activeWeapon);
+                shootCommand.Execute();
+            }
         }
     }
 }
