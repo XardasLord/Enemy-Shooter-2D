@@ -1,13 +1,15 @@
 ﻿using System;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
-using Variables;
 
 namespace Enemy
 {
     public class EnemyHealth : MonoBehaviour
     {
         [SerializeField] private int health;
-        [SerializeField] private IntVariable initialHealth;
+        [SerializeField] private IntConstant initialHealth;
+
+        public int Health => health;
         
         public event Action OnDie = delegate { };
         public event Action<int> OnGetHit = delegate { };
@@ -35,7 +37,5 @@ namespace Enemy
                 OnGetHit(damage);
             }
         }
-
-        public int GetHealth() => health;
     }
 }

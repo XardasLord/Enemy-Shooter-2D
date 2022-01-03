@@ -8,15 +8,15 @@ namespace Enemy
         [SerializeField] private Slider slider;
         [SerializeField] private EnemyHealth healthComponent;
 
-        private void Awake()
+        private void Start()
         {
-            slider.maxValue = healthComponent.GetHealth();
-            slider.value = healthComponent.GetHealth();
+            slider.maxValue = healthComponent.Health;
+            slider.value = healthComponent.Health;
         }
 
         private void Update()
         {
-            slider.value = healthComponent.GetHealth();
+            slider.value = healthComponent.Health;
         }
     }
 }

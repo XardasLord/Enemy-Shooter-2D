@@ -1,6 +1,6 @@
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 using UnityEngine.UI;
-using Variables;
 
 namespace Player
 {

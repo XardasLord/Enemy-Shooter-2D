@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3a3a1800bc44ba082b5c90cb09ce174, type: 3}
-  m_Name: PlayerInitialHP
+  m_Script: {fileID: 11500000, guid: ad76d497767c34ecf88c7aa597da29c0, type: 3}
+  m_Name: SkeletonInitialHP
   m_EditorClassIdentifier: 
-  <Value>k__BackingField: 100
+  _developerDescription: Skeleton initial HP value
+  _id: 
+  _value: 20

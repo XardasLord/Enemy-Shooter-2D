@@ -10,12 +10,6 @@ namespace Player
         private static readonly int GetHitProperty = Animator.StringToHash("GetHit");
         private static readonly int IsDeadProperty = Animator.StringToHash("IsDead");
 
-        private void Awake()
-        {
-            var playerHealth = GetComponent<PlayerHealth>();
-            playerHealth.OnGetHit += OnGetHit;
-        }
-
         public void Move(Vector3 moveDirection)
         {
             var speedValue = Mathf.Abs(moveDirection.x) + Mathf.Abs(moveDirection.y);
@@ -23,7 +17,7 @@ namespace Player
             animator.SetFloat(SpeedParameter, speedValue);
         }
 
-        private void OnGetHit(int hitDamage)
+        public void OnPlayerGetHit()
         {
             animator.SetTrigger(GetHitProperty);
         }

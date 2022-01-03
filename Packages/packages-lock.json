@@ -1,5 +1,80 @@
 {
   "dependencies": {
+    "com.unity-atoms.unity-atoms-base-atoms": {
+      "version": "4.4.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity-atoms.unity-atoms-core": "4.4.3"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "com.unity-atoms.unity-atoms-core": {
+      "version": "4.4.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.org"
+    },
+    "com.unity-atoms.unity-atoms-fsm": {
+      "version": "4.4.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity-atoms.unity-atoms-core": "4.4.3",
+        "com.unity-atoms.unity-atoms-base-atoms": "4.4.3"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "com.unity-atoms.unity-atoms-mobile": {
+      "version": "4.4.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity-atoms.unity-atoms-core": "4.4.3"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "com.unity-atoms.unity-atoms-mono-hooks": {
+      "version": "4.4.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity-atoms.unity-atoms-core": "4.4.3",
+        "com.unity-atoms.unity-atoms-base-atoms": "4.4.3"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "com.unity-atoms.unity-atoms-scene-mgmt": {
+      "version": "4.4.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity-atoms.unity-atoms-core": "4.4.3",
+        "com.unity-atoms.unity-atoms-base-atoms": "4.4.3"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "com.unity-atoms.unity-atoms-tags": {
+      "version": "4.4.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity-atoms.unity-atoms-core": "4.4.3",
+        "com.unity-atoms.unity-atoms-base-atoms": "4.4.3"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "com.unity-atoms.unity-atoms-ui": {
+      "version": "4.4.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity-atoms.unity-atoms-core": "4.4.3",
+        "com.unity-atoms.unity-atoms-base-atoms": "4.4.3"
+      },
+      "url": "https://registry.npmjs.org"
+    },
     "com.unity.2d.animation": {
       "version": "5.0.10",
       "depth": 0,

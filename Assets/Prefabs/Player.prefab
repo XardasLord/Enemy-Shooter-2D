@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1281518465}
-  health: {fileID: 11400000, guid: 1e95e56cb94172c479cc6204bbe5e763, type: 2}
+  health: {fileID: 11400000, guid: ad75f0bb81ead4945b5b85d5622ac089, type: 2}
 --- !u!1 &1493067571
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +804,7 @@ GameObject:
   - component: {fileID: 7048258931613150010}
   - component: {fileID: 9066748655408760455}
   - component: {fileID: 4053237569422866059}
+  - component: {fileID: 7334910314297807003}
   - component: {fileID: 902952462}
   m_Layer: 0
   m_Name: Player
@@ -998,10 +999,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90158120ac1b496b879c0595b2f47fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 11400000, guid: 1e95e56cb94172c479cc6204bbe5e763, type: 2}
-  initialHealth: {fileID: 11400000, guid: b2647acb4e0ea0d4d95a0faee7aec236, type: 2}
-  playerDeathEvent: {fileID: 11400000, guid: 591f063166f45fe4a899725f646181c4, type: 2}
---- !u!114 &902952462
+  health: {fileID: 11400000, guid: ad75f0bb81ead4945b5b85d5622ac089, type: 2}
+  playerDeathEvent: {fileID: 11400000, guid: 45bc2111b83e1484a8944f8c40e329b1, type: 2}
+  playerGotHitEvent: {fileID: 11400000, guid: 30a0ea5fd8213a741bf5dd1dffa71b5f, type: 2}
+--- !u!114 &7334910314297807003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1010,11 +1011,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6120728241860638449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9da042f3018483fa5fa0c5766432ed2, type: 3}
+  m_Script: {fileID: 11500000, guid: d2458933140c54c9db0aec7a69c1b617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: 591f063166f45fe4a899725f646181c4, type: 2}
-  response:
+  _developerDescription: Player Death
+  _unityEventResponse:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7048258931613150010}
@@ -1029,6 +1030,58 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: 45bc2111b83e1484a8944f8c40e329b1, type: 2}
+    _eventInstancer: {fileID: 0}
+    _collection: {fileID: 0}
+    _list: {fileID: 0}
+    _collectionInstancer: {fileID: 0}
+    _listInstancer: {fileID: 0}
+--- !u!114 &902952462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120728241860638449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2458933140c54c9db0aec7a69c1b617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7048258931613150010}
+        m_TargetAssemblyTypeName: Player.PlayerAnimation, Assembly-CSharp
+        m_MethodName: OnPlayerGetHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 0
+    _event: {fileID: 11400000, guid: 30a0ea5fd8213a741bf5dd1dffa71b5f, type: 2}
+    _eventInstancer: {fileID: 0}
+    _collection: {fileID: 0}
+    _list: {fileID: 0}
+    _collectionInstancer: {fileID: 0}
+    _listInstancer: {fileID: 0}
 --- !u!1 &6406775510363258274
 GameObject:
   m_ObjectHideFlags: 0

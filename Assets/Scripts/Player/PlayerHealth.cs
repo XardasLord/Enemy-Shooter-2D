@@ -1,22 +1,19 @@
-﻿using System;
-using EventSystem;
+﻿using UnityAtoms.BaseAtoms;
 using UnityEngine;
-using Variables;
 
 namespace Player
 {
     public class PlayerHealth : MonoBehaviour
     {
         [SerializeField] private IntVariable health;
-        [SerializeField] private IntVariable initialHealth;
         
         [Header("Game events")]
-        [SerializeField] private GameEvent playerDeathEvent;
-        public event Action<int> OnGetHit = delegate { };
+        [SerializeField] private VoidEvent playerDeathEvent;
+        [SerializeField] private VoidEvent playerGotHitEvent;
 
         private void Awake()
         {
-            health.Value = initialHealth.Value;
+            health.Value = health.InitialValue;
         }
 
         public void TakeDamage(int damage)
@@ -31,7 +28,7 @@ namespace Player
             }
             else
             {
-                OnGetHit(damage);
+                playerGotHitEvent.Raise();
             }
         }
     }
