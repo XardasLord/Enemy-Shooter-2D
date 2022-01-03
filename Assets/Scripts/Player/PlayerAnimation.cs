@@ -13,7 +13,6 @@ namespace Player
         private void Awake()
         {
             var playerHealth = GetComponent<PlayerHealth>();
-            playerHealth.OnDie += OnDie;
             playerHealth.OnGetHit += OnGetHit;
         }
 
@@ -29,7 +28,7 @@ namespace Player
             animator.SetTrigger(GetHitProperty);
         }
 
-        private void OnDie()
+        public void OnPlayerDie()
         {
             animator.SetBool(IsDeadProperty, true);
         }

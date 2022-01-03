@@ -804,6 +804,7 @@ GameObject:
   - component: {fileID: 7048258931613150010}
   - component: {fileID: 9066748655408760455}
   - component: {fileID: 4053237569422866059}
+  - component: {fileID: 902952462}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -999,6 +1000,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 11400000, guid: 1e95e56cb94172c479cc6204bbe5e763, type: 2}
   initialHealth: {fileID: 11400000, guid: b2647acb4e0ea0d4d95a0faee7aec236, type: 2}
+  playerDeathEvent: {fileID: 11400000, guid: 591f063166f45fe4a899725f646181c4, type: 2}
+--- !u!114 &902952462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120728241860638449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9da042f3018483fa5fa0c5766432ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 591f063166f45fe4a899725f646181c4, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7048258931613150010}
+        m_TargetAssemblyTypeName: Player.PlayerAnimation, Assembly-CSharp
+        m_MethodName: OnPlayerDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6406775510363258274
 GameObject:
   m_ObjectHideFlags: 0

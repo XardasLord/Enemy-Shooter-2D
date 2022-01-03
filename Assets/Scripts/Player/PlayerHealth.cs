@@ -1,4 +1,5 @@
 ﻿using System;
+using EventSystem;
 using UnityEngine;
 using Variables;
 
@@ -9,7 +10,8 @@ namespace Player
         [SerializeField] private IntVariable health;
         [SerializeField] private IntVariable initialHealth;
         
-        public event Action OnDie = delegate { };
+        [Header("Game events")]
+        [SerializeField] private GameEvent playerDeathEvent;
         public event Action<int> OnGetHit = delegate { };
 
         private void Awake()
@@ -25,7 +27,7 @@ namespace Player
             {
                 health.Value = 0;
 
-                OnDie();
+                playerDeathEvent.Raise();
             }
             else
             {

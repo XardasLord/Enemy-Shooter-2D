@@ -1,4 +1,3 @@
-using Player;
 using UnityEngine;
 
 namespace Enemy
@@ -21,10 +20,7 @@ namespace Enemy
             _enemyAnimator = GetComponent<EnemyAnimation>();
             
             var enemyHealth = GetComponent<EnemyHealth>();
-            enemyHealth.OnDie += EnemyOnDie;
-
-            var playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-            playerHealth.OnDie += PlayerOnDie;
+            enemyHealth.OnDie += OnEnemyDie;
         }
 
         private void Start()
@@ -79,9 +75,9 @@ namespace Enemy
             _isFacingRight = !_isFacingRight;
         }
 
-        private void EnemyOnDie() => _isDead = true;
+        private void OnEnemyDie() => _isDead = true;
 
-        private void PlayerOnDie()
+        public void OnPlayerDie()
         {
             _enemyAnimator.Idle();
             _shouldStay = true;
