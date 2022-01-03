@@ -1,17 +1,23 @@
 ﻿using System;
-using Common;
 using UnityEngine;
+using Variables;
 
 namespace Enemy
 {
-    public class EnemyHealth : HealthBase
+    public class EnemyHealth : MonoBehaviour
     {
-        [SerializeField] [Range(1, 100)] private int health = 20;
+        [SerializeField] private int health;
+        [SerializeField] private IntVariable initialHealth;
+        
+        public event Action OnDie = delegate { };
+        public event Action<int> OnGetHit = delegate { };
 
-        public override event Action OnDie = delegate { };
-        public override event Action<int> OnGetHit = delegate { };
+        private void Awake()
+        {
+            health = initialHealth.Value;
+        }
 
-        public override void TakeDamage(int damage)
+        public void TakeDamage(int damage)
         {
             health -= damage;
             
@@ -20,6 +26,7 @@ namespace Enemy
                 health = 0;
 
                 OnDie();
+                
                 Destroy(gameObject, 2f);
                 GetComponent<BoxCollider2D>().enabled = false;
             }
@@ -29,6 +36,6 @@ namespace Enemy
             }
         }
 
-        public override int GetHealth() => health;
+        public int GetHealth() => health;
     }
 }

@@ -1,24 +1,30 @@
 ﻿using System;
-using Common;
 using UnityEngine;
+using Variables;
 
 namespace Player
 {
-    public class PlayerHealth : HealthBase
+    public class PlayerHealth : MonoBehaviour
     {
-        [SerializeField] [Range(1, 100)] private int health = 100;
+        [SerializeField] private IntVariable health;
+        [SerializeField] private IntVariable initialHealth;
         
-        public override event Action OnDie = delegate { };
-        public override event Action<int> OnGetHit = delegate { };
+        public event Action OnDie = delegate { };
+        public event Action<int> OnGetHit = delegate { };
 
-        public override void TakeDamage(int damage)
+        private void Awake()
         {
-            health -= damage;
+            health.Value = initialHealth.Value;
+        }
+
+        public void TakeDamage(int damage)
+        {
+            health.Value -= damage;
             
-            if (health <= 0)
+            if (health.Value <= 0)
             {
-                health = 0;
-                
+                health.Value = 0;
+
                 OnDie();
             }
             else
@@ -26,7 +32,5 @@ namespace Player
                 OnGetHit(damage);
             }
         }
-
-        public override int GetHealth() => health;
     }
 }
