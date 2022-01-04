@@ -675,7 +675,7 @@ MonoBehaviour:
   _actionResponses: []
   _conditions: []
   _operator: 0
-  _replayEventBufferOnRegister: 1
+  _replayEventBufferOnRegister: 0
   _eventReference:
     _usage: 0
     _event: {fileID: 11400000, guid: 45bc2111b83e1484a8944f8c40e329b1, type: 2}
@@ -769,7 +769,7 @@ MonoBehaviour:
   _actionResponses: []
   _conditions: []
   _operator: 0
-  _replayEventBufferOnRegister: 1
+  _replayEventBufferOnRegister: 0
   _eventReference:
     _usage: 1
     _event: {fileID: 0}
@@ -809,7 +809,7 @@ MonoBehaviour:
   _actionResponses: []
   _conditions: []
   _operator: 0
-  _replayEventBufferOnRegister: 1
+  _replayEventBufferOnRegister: 0
   _eventReference:
     _usage: 1
     _event: {fileID: 0}

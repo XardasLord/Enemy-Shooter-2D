@@ -1033,7 +1033,7 @@ MonoBehaviour:
   _actionResponses: []
   _conditions: []
   _operator: 0
-  _replayEventBufferOnRegister: 1
+  _replayEventBufferOnRegister: 0
   _eventReference:
     _usage: 0
     _event: {fileID: 11400000, guid: 45bc2111b83e1484a8944f8c40e329b1, type: 2}
@@ -1073,7 +1073,7 @@ MonoBehaviour:
   _actionResponses: []
   _conditions: []
   _operator: 0
-  _replayEventBufferOnRegister: 1
+  _replayEventBufferOnRegister: 0
   _eventReference:
     _usage: 0
     _event: {fileID: 11400000, guid: 30a0ea5fd8213a741bf5dd1dffa71b5f, type: 2}
@@ -1091,7 +1091,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3257229865025037025}
+  - component: {fileID: 5201283301848174862}
   - component: {fileID: 1397647417150078344}
+  - component: {fileID: 3343939594902467182}
+  - component: {fileID: 1529580464}
+  - component: {fileID: 3926589268986742139}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -1113,6 +1117,102 @@ Transform:
   m_Father: {fileID: 6120728241860638448}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &5201283301848174862
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6406775510363258274}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1397647417150078344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1130,6 +1230,88 @@ MonoBehaviour:
   fireRate: 0.5
   playerMovement: {fileID: 5363215794347954497}
   firePoint: {fileID: 3882170056008610539}
+  weaponFire:
+    _usage: 1
+    _event: {fileID: 0}
+    _eventInstancer: {fileID: 1529580464}
+    _collection: {fileID: 0}
+    _list: {fileID: 0}
+    _collectionInstancer: {fileID: 0}
+    _listInstancer: {fileID: 0}
+--- !u!114 &3343939594902467182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6406775510363258274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7616ef4818b6438cb2921077b4799f77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 5201283301848174862}
+  fireAudioClips:
+  - {fileID: 8300000, guid: be64544bade297e4d872dd74c66256d2, type: 3}
+  - {fileID: 8300000, guid: da9ac25586ace6c4c81d6acd856f7cda, type: 3}
+  - {fileID: 8300000, guid: fd3895a2d40b7c0438eb055779a0f92a, type: 3}
+  - {fileID: 8300000, guid: 230d59294c9857140b63dd308ea4bd63, type: 3}
+  - {fileID: 8300000, guid: 31f5f9d19376b964da72874480ad63ea, type: 3}
+  - {fileID: 8300000, guid: 74079e3b043b8a549a28e1350566b7e0, type: 3}
+--- !u!114 &1529580464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6406775510363258274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ddf86bc0bd24f30868f3a6a765342e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inMemoryCopy: {fileID: 0}
+  _base: {fileID: 11400000, guid: 9dd8f2eed69d3164b93610036c4b7683, type: 2}
+--- !u!114 &3926589268986742139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6406775510363258274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2458933140c54c9db0aec7a69c1b617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: 
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3343939594902467182}
+        m_TargetAssemblyTypeName: Weapons.WeaponSound, Assembly-CSharp
+        m_MethodName: PlayFireAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 1
+    _event: {fileID: 0}
+    _eventInstancer: {fileID: 1529580464}
+    _collection: {fileID: 0}
+    _list: {fileID: 0}
+    _collectionInstancer: {fileID: 0}
+    _listInstancer: {fileID: 0}
 --- !u!1 &6555207406998591133
 GameObject:
   m_ObjectHideFlags: 0

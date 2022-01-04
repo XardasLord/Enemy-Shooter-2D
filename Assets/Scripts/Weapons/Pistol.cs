@@ -1,4 +1,5 @@
 using Player;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 namespace Weapons
@@ -11,6 +12,9 @@ namespace Weapons
         [SerializeField] private PlayerMovement playerMovement; // TODO: Would be nice to get rid of this
         [SerializeField] private Transform firePoint;
         
+        [Header("Game events")]
+        [SerializeField] private VoidBaseEventReference weaponFire;
+        
         private float _nextFire;
 
         public override void Fire()
@@ -22,6 +26,8 @@ namespace Weapons
             var bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
 
             bullet.SetDamage(damage);
+            
+            weaponFire.Event.Raise();
                 
             _nextFire = Time.time + fireRate;
         }

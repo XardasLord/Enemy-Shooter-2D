@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad76d497767c34ecf88c7aa597da29c0, type: 3}
-  m_Name: SkeletonInitialHP
+  m_Script: {fileID: 11500000, guid: 04d35e2eb934747da9d77a3af62bb8ca, type: 3}
+  m_Name: PistolFire
   m_EditorClassIdentifier: 
-  _developerDescription: Skeleton initial HP value
-  _id: 
-  _value: 20
+  _developerDescription: Pistol fired event
+  _replayBufferSize: 0
