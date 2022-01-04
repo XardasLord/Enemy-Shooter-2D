@@ -18,9 +18,6 @@ namespace Enemy
             _playerTransform = GameObject.FindWithTag("Player").transform;
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _enemyAnimator = GetComponent<EnemyAnimation>();
-            
-            var enemyHealth = GetComponent<EnemyHealth>();
-            enemyHealth.OnDie += OnEnemyDie;
         }
 
         private void Start()
@@ -75,7 +72,7 @@ namespace Enemy
             _isFacingRight = !_isFacingRight;
         }
 
-        private void OnEnemyDie() => _isDead = true;
+        public void OnEnemyDie() => _isDead = true;
 
         public void OnPlayerDie()
         {

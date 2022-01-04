@@ -13,10 +13,6 @@ namespace Enemy
         private void Awake()
         {
             _enemyAnimator = GetComponent<Animator>();
-
-            var enemyHealth = GetComponent<EnemyHealth>();
-            enemyHealth.OnDie += Die;
-            enemyHealth.OnGetHit += GetHit;
         }
 
         public void Attack()
@@ -34,12 +30,12 @@ namespace Enemy
             _enemyAnimator.SetBool(AttackProperty, false);
         }
 
-        private void Die()
+        public void Die()
         {
             _enemyAnimator.SetBool(DieProperty, true);
         }
 
-        private void GetHit(int hitDamage)
+        public void GetHit()
         {
             _enemyAnimator.SetTrigger(GetHitProperty);
         }

@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2623608159023094153}
-  healthComponent: {fileID: 331527300155970982}
+  health: {fileID: 3070972350997436830}
 --- !u!1 &1713767438662838790
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +453,11 @@ GameObject:
   - component: {fileID: 331527300155970982}
   - component: {fileID: 2631697192119417175}
   - component: {fileID: 114757692228738127}
+  - component: {fileID: 3070972350997436830}
+  - component: {fileID: 634235978}
+  - component: {fileID: 634235977}
+  - component: {fileID: 850330547047977286}
+  - component: {fileID: 6217330879038879916}
   m_Layer: 0
   m_Name: EnemySkeleton
   m_TagString: Enemy
@@ -609,8 +614,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db7d6f8e366449b488f6e637d51f644b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  initialHealth: {fileID: 11400000, guid: 23b3463db52556344b920a28c9b13c1a, type: 2}
+  health: {fileID: 3070972350997436830}
+  enemyDeathEvent:
+    _usage: 1
+    _event: {fileID: 0}
+    _eventInstancer: {fileID: 634235978}
+    _collection: {fileID: 0}
+    _list: {fileID: 0}
+    _collectionInstancer: {fileID: 0}
+    _listInstancer: {fileID: 0}
+  enemyGotHit:
+    _usage: 1
+    _event: {fileID: 0}
+    _eventInstancer: {fileID: 634235977}
+    _collection: {fileID: 0}
+    _list: {fileID: 0}
+    _collectionInstancer: {fileID: 0}
+    _listInstancer: {fileID: 0}
 --- !u!114 &2631697192119417175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,6 +680,140 @@ MonoBehaviour:
     _usage: 0
     _event: {fileID: 11400000, guid: 45bc2111b83e1484a8944f8c40e329b1, type: 2}
     _eventInstancer: {fileID: 0}
+    _collection: {fileID: 0}
+    _list: {fileID: 0}
+    _collectionInstancer: {fileID: 0}
+    _listInstancer: {fileID: 0}
+--- !u!114 &3070972350997436830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944367713764127476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adacd19b642ba4bd9866612e37971b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inMemoryCopy: {fileID: 0}
+  _base: {fileID: 11400000, guid: 59a42ba5969ba4a4697059831c592566, type: 2}
+--- !u!114 &634235978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944367713764127476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ddf86bc0bd24f30868f3a6a765342e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inMemoryCopy: {fileID: 0}
+  _base: {fileID: 11400000, guid: 4c89a57c50a4962499c1e98404dfe0f3, type: 2}
+--- !u!114 &634235977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944367713764127476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ddf86bc0bd24f30868f3a6a765342e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inMemoryCopy: {fileID: 0}
+  _base: {fileID: 11400000, guid: d685a73e0360f9b4a98f7f99f1238b54, type: 2}
+--- !u!114 &850330547047977286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944367713764127476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2458933140c54c9db0aec7a69c1b617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: Enemy Death
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4242723618719636936}
+        m_TargetAssemblyTypeName: Enemy.EnemyAnimation, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6230308994788381079}
+        m_TargetAssemblyTypeName: Enemy.EnemyMovement, Assembly-CSharp
+        m_MethodName: OnEnemyDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 1
+    _event: {fileID: 0}
+    _eventInstancer: {fileID: 634235978}
+    _collection: {fileID: 0}
+    _list: {fileID: 0}
+    _collectionInstancer: {fileID: 0}
+    _listInstancer: {fileID: 0}
+--- !u!114 &6217330879038879916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944367713764127476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2458933140c54c9db0aec7a69c1b617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _developerDescription: Enemy Got Hit
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4242723618719636936}
+        m_TargetAssemblyTypeName: Enemy.EnemyAnimation, Assembly-CSharp
+        m_MethodName: GetHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _actionResponses: []
+  _conditions: []
+  _operator: 0
+  _replayEventBufferOnRegister: 1
+  _eventReference:
+    _usage: 1
+    _event: {fileID: 0}
+    _eventInstancer: {fileID: 634235977}
     _collection: {fileID: 0}
     _list: {fileID: 0}
     _collectionInstancer: {fileID: 0}

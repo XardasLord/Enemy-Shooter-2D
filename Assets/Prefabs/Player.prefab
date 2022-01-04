@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2458933140c54c9db0aec7a69c1b617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _developerDescription: 
+  _developerDescription: Player Got Hit
   _unityEventResponse:
     m_PersistentCalls:
       m_Calls:

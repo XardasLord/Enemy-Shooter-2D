@@ -1,40 +1,38 @@
-﻿using System;
-using UnityAtoms.BaseAtoms;
+﻿using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 namespace Enemy
 {
     public class EnemyHealth : MonoBehaviour
     {
-        [SerializeField] private int health;
-        [SerializeField] private IntConstant initialHealth;
+        [SerializeField] private IntVariableInstancer health;
 
-        public int Health => health;
-        
-        public event Action OnDie = delegate { };
-        public event Action<int> OnGetHit = delegate { };
+        [Header("Game events")] 
+        [SerializeField] private VoidBaseEventReference enemyDeathEvent;
+        [SerializeField] private VoidBaseEventReference enemyGotHit;
 
         private void Awake()
         {
-            health = initialHealth.Value;
+            health.Value = health.Base.InitialValue;
         }
 
         public void TakeDamage(int damage)
         {
-            health -= damage;
+            health.Value -= damage;
             
-            if (health <= 0)
+            if (health.Value <= 0)
             {
-                health = 0;
+                health.Value = 0;
 
-                OnDie();
+                enemyDeathEvent.Event.Raise();
                 
+                // TODO: Move it to other script like `Enemy.cs`
                 Destroy(gameObject, 2f);
                 GetComponent<BoxCollider2D>().enabled = false;
             }
             else
             {
-                OnGetHit(damage);
+                enemyGotHit.Event.Raise();
             }
         }
     }
