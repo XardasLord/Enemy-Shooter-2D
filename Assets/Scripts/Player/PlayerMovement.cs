@@ -7,7 +7,6 @@ namespace Player
     {
         [SerializeField] private float speed = 5;
     
-        private SpriteRenderer _spriteRenderer;
         private PlayerAnimation _playerAnimator;
         private bool _isFacedRight = true;
 
@@ -16,7 +15,6 @@ namespace Player
         private void Awake()
         {
             _playerAnimator = GetComponent<PlayerAnimation>();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void Update()
@@ -40,7 +38,11 @@ namespace Player
             if (!ShouldFlipSprite(horizontalMove)) 
                 return;
             
-            _spriteRenderer.flipX = !_spriteRenderer.flipX;
+            transform.localScale = new Vector3(
+                transform.localScale.x * -1,
+                transform.localScale.y,
+                transform.localScale.z);
+            
             _isFacedRight = !_isFacedRight;
         }
 
