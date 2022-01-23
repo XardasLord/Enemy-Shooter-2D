@@ -10,6 +10,7 @@ namespace Player
         [Header("Game events")]
         [SerializeField] private VoidEvent playerDeathEvent;
         [SerializeField] private VoidEvent playerGotHitEvent;
+        [SerializeField] private VoidEvent playerHealEvent;
 
         private void Awake()
         {
@@ -30,6 +31,16 @@ namespace Player
             {
                 playerGotHitEvent.Raise();
             }
+        }
+
+        public void Heal(int healPoints)
+        {
+            health.Value += healPoints;
+
+            if (health.Value > 100)
+                health.Value = 100;
+
+            playerHealEvent.Raise();
         }
     }
 }

@@ -5864,6 +5864,7 @@ MonoBehaviour:
   health: {fileID: 11400000, guid: ad75f0bb81ead4945b5b85d5622ac089, type: 2}
   playerDeathEvent: {fileID: 11400000, guid: 45bc2111b83e1484a8944f8c40e329b1, type: 2}
   playerGotHitEvent: {fileID: 11400000, guid: 30a0ea5fd8213a741bf5dd1dffa71b5f, type: 2}
+  playerHealEvent: {fileID: 11400000, guid: 3b77d06028a4dc241b0b8639d2f65646, type: 2}
 --- !u!114 &7334910314297807003
 MonoBehaviour:
   m_ObjectHideFlags: 0
