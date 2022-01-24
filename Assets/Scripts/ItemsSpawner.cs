@@ -21,7 +21,7 @@ public class ItemsSpawner : MonoBehaviour
     {
         _nextTimeSpawn -= Time.deltaTime;
         
-        if(_nextTimeSpawn <= 0)
+        if (_nextTimeSpawn <= 0)
         {
             SpawnItem();
             _nextTimeSpawn = waitingForNextSpawnInSecs;
